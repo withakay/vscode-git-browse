@@ -2,9 +2,14 @@
   "name": "git-browse",
   "displayName": "git-browse",
   "description": "Open Git repos in the browser (assumes using popular Git host that supports browers)",
-  "version": "0.0.1",
+  "publisher": "withakay",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/withakay/vscode-git-browse"
+  },
+  "version": "0.1.0",
   "engines": {
-    "vscode": "^1.89.0"
+    "vscode": "^1.88.0"
   },
   "categories": [
     "Other"
@@ -14,10 +19,18 @@
   "contributes": {
     "commands": [
       {
-        "command": "git-browse.helloWorld",
-        "title": "Hello World"
+        "command": "git-browse.openInBrowser",
+        "title": "Git: Open Repository in Browser"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "group": "git-browse@1",
+          "command": "git-browse.openInBrowser"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",
@@ -27,13 +40,10 @@
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
-    "@types/vscode": "^1.89.0",
+    "@types/vscode": "^1.88.0",
     "@vscode/test-cli": "^0.0.8",
     "@vscode/test-electron": "^2.3.9",
     "eslint": "^8.57.0",
     "typescript": "^5.4.5"
-  },
-  "dependencies": {
-    "git-url-parse": "^14.0.0"
   }
 }
